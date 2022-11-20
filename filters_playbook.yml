@@ -1,0 +1,17 @@
+---
+- name: Example of Filters
+  hosts: localhost
+  gather_facts: false
+  vars:
+    answers: "no or yes"
+    dept: ['IT','Admin','HR','Finance','Logistic']
+  tasks:
+    - debug:
+        msg: 
+        - "Convert to upper:  {{ answers | upper }}"
+        - " Dept: {{dept}}"
+        - "Total departments: {{ dept | length }}"
+        - "First two items from the list: {{ dept[:2] }}"
+        - " Reverse the list items: {{ dept[::-1]}}"
+        - " last two items from the list: {{dept[-1:-3:-1]}}"
+
